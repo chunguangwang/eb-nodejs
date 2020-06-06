@@ -1,0 +1,5 @@
+@media(min-width: 780px){
+    .breakOnWidth {
+      width: 50%!important;
+    }
+  }

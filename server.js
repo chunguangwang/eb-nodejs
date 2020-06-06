@@ -1,41 +1,8 @@
-var port = process.env.PORT || 5000,
-    http = require('http'),
-    fs = require('fs'),
-    html = fs.readFileSync('index.html');
+const http = require('http');
+const app = require('./app');
 
-var log = function(entry) {
-    fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
-};
+const port = process.env.PORT || 5000;
 
-var server = http.createServer(function (req, res) {
-    if (req.method === 'POST') {
-        console.log("hello post request");
-        var body = '';
+const server = http.createServer(app);
 
-        req.on('data', function(chunk) {
-            body += chunk;
-        });
-
-        req.on('end', function() {
-            if (req.url === '/') {
-                console.log('Received message: ' + body);
-            } else if (req.url = '/scheduled') {
-                console.log('Received task ' + req.headers['x-aws-sqsd-taskname'] + ' scheduled at ' + req.headers['x-aws-sqsd-scheduled-at']);
-            }
-            res.write(body);
-            res.end();
-            res.writeHead(200, 'OK', {'Content-Type': 'text/plain'});
-            res.end();
-        });
-    } else {
-        res.writeHead(200);
-        res.write(html);
-        res.end();
-    }
-});
-
-// Listen on port 3000, IP defaults to 127.0.0.1
 server.listen(port);
-
-// Put a friendly message on the terminal
-console.log('Server running at http://127.0.0.1:' + port + '/');
