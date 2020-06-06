@@ -18,11 +18,11 @@
 
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run build & npm run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "client": "PORT=8080 react-scripts start",
+    "client": "react-scripts start",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -41,7 +41,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:8080",
   "devDependencies": {
   }
 }
