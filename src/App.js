@@ -39,7 +39,6 @@ class App extends React.Component {
         console.log(extraResponse.data);
 
         this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] });
-        // console.log(response.data.items);
     } 
 
     render(){
@@ -47,13 +46,11 @@ class App extends React.Component {
 
         return(
             <Grid justify="center" container spacing={10}>
-                    <Grid container spacing={10} >
-                        <Grid item xs={12}> 
-                            <SearchBar onFormSubmit={this.handleSubmit} />
-                        </Grid>
+                <Grid item xs={12}> 
+                    <SearchBar onFormSubmit={this.handleSubmit} />
+                </Grid>
 
-                        <ExerIndex selectedVideo={selectedVideo} videos={videos} onVideoSelect={this.onVideoSelect}/>
-                    </Grid>
+                <ExerIndex selectedVideo={selectedVideo} videos={videos} onVideoSelect={this.onVideoSelect}/>
             </Grid>
         )
     }
