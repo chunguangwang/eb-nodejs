@@ -1,16 +1,14 @@
 import React from 'react';
 
 import { Grid } from '@material-ui/core';
-
-import {SearchBar, VideoDetail, VideoList} from './components';
-import './ExerIndex';
+import { SearchBar } from './components';
 
 import youtube from './api/youtube';
 import hello from './api/hello';
 
 import './App.css';
 // import Exercises from './components/Exercises';
-// import ExerIndex from './ExerIndex';
+import ExerIndex from './ExerIndex';
 
 class App extends React.Component {
 
@@ -48,26 +46,15 @@ class App extends React.Component {
         const { selectedVideo, videos } = this.state;
 
         return(
-            // <Grid justify="center" container spacing={10}>
-            //     <Grid item xs={12}>
-            <div>
-                  {/* <Exercises />
-                    <ExerIndex /> */}
+            <Grid justify="center" container spacing={10}>
                     <Grid container spacing={10} >
                         <Grid item xs={12}> 
                             <SearchBar onFormSubmit={this.handleSubmit} />
                         </Grid>
 
-                        <Grid item xs={8}>
-                            <VideoDetail video={selectedVideo} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <VideoList videos={videos} onVideoSelected={this.onVideoSelect} />
-                        </Grid>
+                        <ExerIndex selectedVideo={selectedVideo} videos={videos} onVideoSelect={this.onVideoSelect}/>
                     </Grid>
-             </div>
-            //     </Grid>
-            // </Grid>
+            </Grid>
         )
     }
 }

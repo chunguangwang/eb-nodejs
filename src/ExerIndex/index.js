@@ -3,6 +3,7 @@ import { Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import { red } from '@material-ui/core/colors';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { VideoDetail, VideoList } from '../components'
 const useStyles = makeStyles(theme => ({
     Paper: {
             padding: theme.spacing(3),
@@ -12,22 +13,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function FullWidthGrid() {
+const FullWidthGrid = ({ selectedVideo, videos, onVideoSelect }) => {
     const classes = useStyles();
     const matches = useMediaQuery('(min-width:1200px)');
+    
     return (
-    <Grid container item={true} sm={12}>
+    <Grid container item={true} sm={12} spacing={10}>
         {/* {`(min-width:600px) matches: ${matches}`} */}
-        <Grid item sm={matches?6:12}>
-            <Paper className={classes.Paper}>
-            {matches?'Left':'Top'} Pane
-            </Paper>
+        <Grid item sm={matches?8:12}>
+            <VideoDetail video={selectedVideo} />
         </Grid>
-        <Grid item sm={matches?6:12}>
-            <Paper className={classes.Paper}>
-            {matches?'Right':'Bottom'} Pane
-            </Paper>
+        <Grid item sm={matches?4:12}>
+             <VideoList videos={videos} onVideoSelected={onVideoSelect} />
         </Grid>
     </Grid>
     );
 }
+
+export default FullWidthGrid;
