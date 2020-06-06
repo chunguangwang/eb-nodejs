@@ -13,7 +13,9 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "concurrently": "^5.1.0"
+
   },
   "scripts": {
     "start": "npm run dev",
@@ -41,6 +43,5 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
-    "concurrently": "^5.1.0"
   }
 }
