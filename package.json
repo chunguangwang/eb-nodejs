@@ -22,7 +22,7 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run build && npm run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
