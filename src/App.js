@@ -35,8 +35,8 @@ class App extends React.Component {
             }
         });
 
-        const extraResponse = await hello.get();
-        console.log(extraResponse.data);
+        // const extraResponse = await hello.get();
+        // console.log(extraResponse.data);
 
         this.setState({ videos: response.data.items, selectedVideo: response.data.items[0] });
     } 

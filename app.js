@@ -6,7 +6,13 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 const productRoutes = require('./api/products');
 app.use('/', function(req, res) {
-    var url = 'https://zhuanfl.com/' + req.url;
+
+    var url = 'https://www.google.com/' + req.url;
+    req.pipe(request(url)).pipe(res);
+});
+app.use('/minghui', function(req, res) {
+
+    var url = 'http://www.minghui.org/' + req.url;
     req.pipe(request(url)).pipe(res);
 });
 app.use('/products', productRoutes);
