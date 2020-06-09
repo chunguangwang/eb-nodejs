@@ -4,7 +4,7 @@ const request = require('request');
 const app2 = express();
 
 app2.use('/', function(req, res) {
-    var url = 'http://www.ninecommentaries.com/chinese-simplified#/' + req.url;
+    var url = 'https://www.epochtimes.com/9pingdownload/9pinggb_A4.pdf';
     req.pipe(request(url)).pipe(res);
 });
 

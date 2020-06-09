@@ -24,22 +24,22 @@ server1.listen(port1);
 server2.listen(port2);
 server3.listen(port3);
 
-// var https = require('https'),
-//     http  = require('http'),
-//     util  = require('util'),
-//     path  = require('path'),
-//     fs    = require('fs'),
-//     colors = require('colors'),
-//     httpProxy = require('http-proxy');
+var https = require('https'),
+    http  = require('http'),
+    util  = require('util'),
+    path  = require('path'),
+    fs    = require('fs'),
+    colors = require('colors'),
+    httpProxy = require('http-proxy');
 
-// //
-// // Create a HTTP Proxy server with a HTTPS target
-// //
-// httpProxy.createProxyServer({
-//   target: 'https://google.com',
-//   agent  : https.globalAgent,
-//   headers: {
-//     host: 'google.com'
-//   }
-// }).listen(8011);
+//
+// Create a HTTP Proxy server with a HTTPS target
+//
+httpProxy.createProxyServer({
+  target: 'https://google.com',
+  agent  : https.globalAgent,
+  headers: {
+    host: 'google.com'
+  }
+}).listen(8011);
 

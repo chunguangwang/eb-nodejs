@@ -10,7 +10,7 @@ const VideoDetail = ({ video, matches }) => {
         const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}?loop=1`
         return(
             <React.Fragment>
-                <Paper elevation={8} style={matches?{ height:'90%' }:{ height: '35%' }}>
+                <Paper elevation={8} style={matches?{ height:'50%' }:{ height: '35%' }}>
                     <iframe frameBorder="0" height="100%" width="100%" title="Video Player" src={videoSrc}/>
                 </Paper>
                 <Paper elevation={4} style={{ padding: '15px' }}>
