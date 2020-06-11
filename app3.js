@@ -8,4 +8,11 @@ app3.use('/', function(req, res) {
     req.pipe(request(url)).pipe(res);
 });
 
+app3.use('/helloAlien',     function(req, res){
+        res.status(200).json({
+        message: 'Hello Alien',
+    });
+});
+
+
 module.exports = app3;
